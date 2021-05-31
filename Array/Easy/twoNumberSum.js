@@ -48,6 +48,9 @@ function twoNumberSum(array, targetSum) {
 
 // ** SOLUTION ONE **
 
+// time & space complexity:
+  // o(n) for both, where n is length of array
+
 function twoNumberSum(array, targetSum) {
 	let hashTable = {};
 	for (let i = 0; i < array.length; i++) {
@@ -70,7 +73,4 @@ function twoNumberSum(array, targetSum) {
     //store each num in hash table
     //see if hashTable[targetSum - curNum] exists
     //if yes, return [curNum, targetSum - curNum]
-
-// time & space complexity:
-  // o(n) for both, where n is length of array
 
