@@ -1,6 +1,8 @@
 //https://www.algoexpert.io/questions/Three%20Number%20Sum
 
 // ** SOLUTION ONE **
+// nested for loop with a while loop; user pointers to keep track of 2nd and 3rd nums
+// inside the while loop
 
 // TIME & SPACE
   // time: o(n^2) where n is length of input array
