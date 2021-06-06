@@ -1,33 +1,42 @@
 //https://www.algoexpert.io/questions/First%20Duplicate%20Value
 
 // ** SOLUTION TWO **
-//
+// modify input array to track what nums we've already seen
 
 // TIME & SPACE
-  // time:
-  // space:
+  // time: o(n) where n is length of input array
+  // space: o(1)
 
 // CODE
-
+function firstDuplicateValue(array) {
+  for (let i = 0; i < array.length; i++) {
+		let absValue = Math.abs(array[i]); //we're using this for idx, don't want a neg idx
+		if (array[absValue - 1] < 0) {
+			return absValue;
+		}
+		array[absValue - 1] *= -1; //must be *=
+	}
+  return -1;
+}
 
 // APPROACH
   /*
-    input: ; output:
+    map seen integers to indices in the array
 
-    examples:
+    iterate through array
+    for each num, find abs value and subtract 1 to find the idx to map to
+      go to that idx, if the num there is neg => return curNum
+      else (not neg), make num negative to indicate we've now seen curNum
 
-
-    edge cases:
-
-    brute force:
-
-    optimized:
 
   */
 
 // NOTES
   /*
+    pay attention to prompt: it says we CAN modify input array, and integers are between 1 and n
+      ask why are values betwen 1 and n? => they can be mapped to an idx in the input array
 
+    why can't we switch ln 14 - 16 with 7?
   */
 
 
