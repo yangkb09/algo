@@ -28,6 +28,63 @@ function arrayOfProducts(array) {
 	return products;
 }
 
+// ** SOLUTION TWO **
+// initialize product arr with 1's, track product of every elem to the left first, track product of every elem to the right, then multiply leftProd[i] with rightProd[i] and push into a new arr
+
+// TIME & SPACE
+  // time: o(n)
+  // space: o(n)
+
+// CODE
+function arrayOfProducts(array) {
+	let leftProdArr = new Array(array.length).fill(1);
+	let rightProdArr =  new Array(array.length).fill(1);
+	let leftProd = 1;
+	let rightProd = 1;
+	let outputArr = [];
+
+	//iterate for nums on the left
+	for (let i = 0; i < array.length; i++) {
+		leftProdArr[i] = leftProd;
+		leftProd *= array[i];
+	}
+
+	//iterate backwards for nums on the right
+	for (let j = array.length - 1; j >= 0; j--) {
+		rightProdArr[j] = rightProd;
+		rightProd *= array[j];
+	}
+
+	for (let x = 0; x < array.length; x++) {
+		outputArr.push(leftProdArr[x] * rightProdArr[x]);
+	}
+	return outputArr;
+}
+
+// ** SOLUTION ONE **
+// brute force: nested for loop, check to make sure inner and outer idx doesn't equal, then multiply
+
+// TIME & SPACE
+  // time: o(n^2)
+  // space: o(n)
+
+// CODE
+function arrayOfProducts(array) {
+  let output = [];
+
+	for (let i = 0; i < array.length; i++) {
+		let product = 1; //needs to be 1 (if it's 0, sum is 0) and in the for loop so it's rewritten every time
+		for (let j = 0; j < array.length; j++) {
+			if (i !== j) {
+				product *= array[j];
+			}
+		}
+		output.push(product);
+	}
+	return output;
+}
+
+
 // APPROACH
   /*
     input: non-empty array of integers; output: array of integers
@@ -42,7 +99,15 @@ function arrayOfProducts(array) {
     edge cases: array with any 0;
 
     brute force:
+    initialize var to hold output
+    initialize sum
     nested for loop
+    iterate through the array
+      hold onto the curNum (array[i])
+      iterate trhough the array (from beginning)
+        if i !== j
+        multiple it into sum
+      push sum into output
 
     optimized:
     init products arr with 1's, same length as input arr
