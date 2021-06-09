@@ -66,7 +66,11 @@ function mergeOverlappingIntervals(intervals) {
 
 // NOTES
   /*
+    initially thought i needed to nest for loops (Brute force), but realize that i can just sort the input arr and it'll be better time complexity
+
     compare array[i] (nextInterval) to what's in the output arr (curInterval) bc output arr (curInterval) might hold previously merged intervals
+
     curInterval[1] = Math.max(curIntervalEnd, nextIntervalEnd) //modifies curInterval IN MERGEDINTERVALS
+
     first iteration, curInterval is the same as nextInterval, so we end up modifying it, but it's the same
   */
