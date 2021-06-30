@@ -26,7 +26,7 @@ function removeDuplicatesFromLinkedList(linkedList) {
 		}
 		//rewrite connections
 		leftPointer.next = rightPointer;
-		leftPointer = rightPointer;
+		leftPointer = rightPointer; //don't need to move the rightP again after this bc it'll get moved in the nested while loop
 	}
   return linkedList;
 }
