@@ -63,5 +63,6 @@ console.log(jumbledNumbers('forivozneeezezerroo')) //00015
 
 // NOTES
   /*
-
+    even numbers all have one unique character
+    order of character checking matters
   */
